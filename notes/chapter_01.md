@@ -73,7 +73,6 @@
   * `ls -l ~/.psqlrc`
   * `touch ~/.psqlrc`
   * `rubymine ~/.psqlrc`
-
     * Add the following:
       ```shell
       \encoding unicode
@@ -81,17 +80,14 @@
       \set PROMPT2 ''
 
       \setenv PAGER 'less -S'
-
       ```
   * Verify `psql` output:
-
     ```shell
     psql (17.6 (Postgres.app))
     Type "help" for help.
 
     audreacook@[local]:5432 audreacook#
     ```
-
     * `psql (17.6 (Postgres.app))` --> `psql` client version
     * `audreacook` --> macOS user
     * `@[local]:5432` --> host and port
