@@ -73,6 +73,7 @@
   * `ls -l ~/.psqlrc`
   * `touch ~/.psqlrc`
   * `rubymine ~/.psqlrc`
+
     * Add the following:
       ```shell
       \encoding unicode
@@ -82,12 +83,14 @@
       \setenv PAGER 'less -S'
       ```
   * Verify `psql` output:
+
     ```shell
     psql (17.6 (Postgres.app))
     Type "help" for help.
 
     audreacook@[local]:5432 audreacook#
     ```
+
     * `psql (17.6 (Postgres.app))` --> `psql` client version
     * `audreacook` --> macOS user
     * `@[local]:5432` --> host and port
@@ -136,3 +139,17 @@
   * `sh db/setup.sh 2>&1 | tee -a output.log`
     * `2>&1` redirects stderr to stdout
     * `| tee -a output.log` appends all output to `output.log`
+
+## Configuring Database Access
+
+* The `owner` role
+  * Connects with a password stored in `~/.pgpass`
+  * Owns objects like tables within schema
+* Setting `DATABASE_URL`
+  * `export DATABASE_URL=postgres://owner:@localhost:5432/rideshare_development`
+    * To avoid typing this every time, add it to your shell profile (`~/.zshrc`)
+* Setting up quick access for Rails
+  * `DATABASE_URL` is stored in `.env`
+    * Used for rails commands like `rails db` or `rails console`
+  * Verify it's working with `bin/rails db`
+* Run migrations: `bin/rails db:migrate`
