@@ -33,3 +33,71 @@
 * [Data Modification Language (DML)](../GLOSSARY.md#data-manipulation-language-dml)
   * statements like `INSERT`, `UPDATE`, and `DELETE`
   * When possible, these modifications should be separate from migrations
+
+## Exploring Rideshare Dependencies
+
+* Requirements
+  * Ruby
+  * rbenv
+  * PostgreSQL
+  * Git
+  * Homebrew
+
+## Installing Application Dependencies
+
+* `git --version`
+  * Must be > 2.42.0
+  * `brew upgrade git` if the version is too low
+* `rbenv --version`
+  * Must be > 1.2.0
+* `brew install graphviz`
+
+## Installing PostgreSQL on macOS
+
+* Recommended way to install is via [Postgres.app](https://postgresapp.com)
+* In the Postgres.app...
+  * Click "Initialize"
+    * Postgres runs on port `5432`
+    * Adds db with the same name as your macOS user
+      * `psql` connects to this db by default
+* Configure `PATH` for `psql`
+  * ```shell
+    sudo mkdir -p /etc/paths.d && echo "/Applications/Postgres.app/Contents/Versions/latest/bin" | sudo tee /etc/paths.d/postgresapp
+    ```
+* Test `psql` and `pg_dump`
+  * `psql --version` > 16.0
+  * `pg_dump --version` > 16.0
+  * `pg_config`
+    * last line should show a postgres version > 16.0
+* Configure `psqlrc` file
+  * `ls -l ~/.psqlrc`
+  * `touch ~/.psqlrc`
+  * `rubymine ~/.psqlrc`
+
+    * Add the following:
+      ```shell
+      \encoding unicode
+      \set PROMPT1 '%n@%M:%>%x %/# '
+      \set PROMPT2 ''
+
+      \setenv PAGER 'less -S'
+
+      ```
+  * Verify `psql` output:
+
+    ```shell
+    psql (17.6 (Postgres.app))
+    Type "help" for help.
+
+    audreacook@[local]:5432 audreacook#
+    ```
+    * `psql (17.6 (Postgres.app))` --> `psql` client version
+    * `audreacook` --> macOS user
+    * `@[local]:5432` --> host and port
+    * `audreacook#` --> current database and superuser prompt
+  * Verify database connection in `psql`
+  * ```shell
+    SELECT current_database();
+    ```
+  * It should return your macOS username
+  * Quit `psql` with `\q`
