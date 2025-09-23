@@ -109,3 +109,34 @@
   * `git clone https://github.com/andyatkinson/rideshare.git`
 * Confirm correct Ruby version (3.2.2) `ruby --version`
 * Confirm correct Bundler version (>2.3.6) `bundler --version`
+* Install gems `bundle install`
+
+## Configuring PostgreSQL for Rideshare
+
+* Custom shell script for Rideshare setup
+  * (as opposed to `bin/rails db:create`)
+  * Creates users and passwords
+    * `owner`
+    * `app`
+    * `app_readonly`
+  * Creates `rideshare_development` db
+  * Creates `rideshare` schema
+  * Grants permissions to schema and users
+  * Alters default permissions according to PostgreSQL best practices
+  * Removes `public` schema
+* PostgreSQL **users**
+  * roles with the `LOGIN` privelege
+  * has a password set by `openssl` on macOS
+* Storing `RIDESHARE_DB_PASSWORD` as environment variable
+  * `export RIDESHARE_DB_PASSWORD=$(openssl rand -hex 12)`
+  * Verify with `echo $RIDESHARE_DB_PASSWORD`
+* `~/.pgpass` stores passwords for PostgreSQL users
+  * Has a line for each user with a colon-separated format
+  * `hostname:port:database:username:password`
+    * Example: `localhost:5432:rideshare_development:owner:2C6uw3LprgUMwSLQ`
+* Set `DB_URL` environment variable
+  * `export DB_URL="postgres://postgres@localhost:5432/postgres"`
+* Run the custom script
+  * `sh db/setup.sh 2>&1 | tee -a output.log`
+    * `2>&1` redirects stderr to stdout
+    * `| tee -a output.log` appends all output to `output.log`
