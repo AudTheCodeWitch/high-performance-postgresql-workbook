@@ -91,6 +91,7 @@
 
     audreacook@[local]:5432 audreacook#
     ```
+
     * `psql (17.6 (Postgres.app))` --> `psql` client version
     * `audreacook` --> macOS user
     * `@[local]:5432` --> host and port
@@ -101,3 +102,10 @@
     ```
   * It should return your macOS username
   * Quit `psql` with `\q`
+
+## Installing Rideshare
+
+* Clone Rideshare repo into your selected directory
+  * `git clone https://github.com/andyatkinson/rideshare.git`
+* Confirm correct Ruby version (3.2.2) `ruby --version`
+* Confirm correct Bundler version (>2.3.6) `bundler --version`
