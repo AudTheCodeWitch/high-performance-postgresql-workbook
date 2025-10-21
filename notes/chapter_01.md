@@ -161,3 +161,63 @@
   * It allows developers to use the syntax from the OOP language to interact with the database without needing to write raw SQL
   * Objects are things like tables, indexes, schemas, constraints, and column defaults
   * Objects can have dependencies and use inheritance
+
+## Learning SQL Terminology
+
+* SQL uses a [declarative model](../GLOSSARY.md#declarative-model)
+  * Programmer describes **what** is needed.
+  * PostgreSQL chooses **how** to get it.
+* PostgreSQL shows selected query plan, but doesn't let you choose which plan to select
+  * You can influence which plan is selected
+* The [optimizer](../GLOSSARY.md#optimizer) compares the costs of potential plans and chooses the best one
+* Functions enhance your database
+  * Can use both built-in functions and user-defined functions
+  * Can be written in SQL or procedural languages
+* Procedures expand on functions
+  * Provides more capabilities, like transaction control
+* PostgreSQL is a transactional database
+  * Fundamental to how operations are performed and how concurrency works
+* [Transaction](../GLOSSARY.md#transaction) can also refer to a sequence of operations performed as a single logical unit of work
+* [Relation](../GLOSSARY.md#relation) or `relname` typically refers to a table
+* [Query Execution Plan](../GLOSSARY.md#query-execution-plan) shows how PostgreSQL will execute a query
+
+## Ruby on Rails Terminology
+* Active Record is the default [Object Relational Mapping (ORM)](../GLOSSARY.md#object-relational-mapping-orm) layer for Rails
+  * Goes beyond basic persistence
+  * [Migrations](../GLOSSARY.md#migration) are used for schema evolution
+  * [Associations](../GLOSSARY.md#associations) define relationships between models
+    * `has_many`, `belongs_to`, `has_one`, `has_and_belongs_to_many`
+    * Read like documentation but are actually callable Ruby methods
+  * Validations document and enforce correctness and consistency of data
+    * Can hook into lifecycle events like `before_save` or `after_create`
+
+## Conventions Used in This Book
+* Code snippets are in external files
+* Shell script files (`.sh`)
+  * May start with a shebang (`#!/bin/sh`)
+    * Can be run from your terminal
+  * No shebang
+    * Run commands individually
+    * Just copy and paste into your termina
+  * Be sure do `cd` into the correct directory first
+* Long versions of option names are used for clarity
+  * e.g. `--version` instead of `-v`
+* Long commands may be split across multiple lines
+  * Backslash (`\`) at the end of a line indicates continuation
+  * Copy and paste the entire command, removing backslashes and newlines
+* Long versions of `psql` meta-commands are used for clarity
+  * e.g. `describe user` instead of `\du`
+* Recommend iTerm2 for macOS terminal
+* Units like **KB**, **MB**, and **GB** match the `PG_SIZE_PRETTY()` function output
+
+## SQL Formatting Conventions
+* SQL keywords and functions are capitalized and monospaced
+    * e.g. `SELECT`, `FROM`, `WHERE`, `COUNT()`
+    * Capitalization isn't required, but improves readability
+* Proper nouns in PostGreSQL will follow the format in the official documentation
+
+## Ruby on Rails Formatting Conventions
+* Keywords will match official documentation
+* Ruby methods in code samples typically start with a `.` and are lowercased with explicit parentheses
+  * e.g. `.where()`, `.find_by()`, `.has_many()`
+  * Used for both class and instance methods
