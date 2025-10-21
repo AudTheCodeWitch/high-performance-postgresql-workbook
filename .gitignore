@@ -58,3 +58,6 @@ build-iPhoneSimulator/
 # Ignore JetBrains IDE (IntelliJ, RubyMine, etc.) project files
 .idea/
 *.iml
+
+# Ignore code snippets files
+/code_snippets/
