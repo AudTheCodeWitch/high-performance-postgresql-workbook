@@ -153,3 +153,11 @@
     * Used for rails commands like `rails db` or `rails console`
   * Verify it's working with `bin/rails db`
 * Run migrations: `bin/rails db:migrate`
+
+## Learning PostgreSQL Terminology
+
+* [Object Relational Database](../GLOSSARY.md#object-relational-database)
+  * A database that combines relational database principles with object-oriented programming concepts
+  * It allows developers to use the syntax from the OOP language to interact with the database without needing to write raw SQL
+  * Objects are things like tables, indexes, schemas, constraints, and column defaults
+  * Objects can have dependencies and use inheritance
