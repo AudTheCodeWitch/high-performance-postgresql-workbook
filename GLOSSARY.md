@@ -6,6 +6,9 @@ This glossary provides definitions for key terms and concepts used throughout th
 ### Associations
 Active Record model methods that describe model relationships. e.g. `has_many`, `belongs_to`, `has_one`, and `has_and_belongs_to_many`.
 
+### Backend
+A backend process with a `pid` and query
+
 ### Data Manipulation Language (DML)
 A subset of SQL commands used to retrieve and manipulate data within database tables. Common DML commands include `SELECT`, `INSERT`, `UPDATE`, and `DELETE`.
 
@@ -14,6 +17,9 @@ A subset of SQL commands used to define and modify the structure of database obj
 
 ### Declarative Model
 Users write SQL statements that describe what data they want. The database management system determines how to execute the statements efficiently.
+
+### Meta-command
+A special command in `psql` that starts with a backslash (`\`). Meta-commands are used to perform various tasks, such as listing tables, describing table structures, and managing database connections.
 
 ### Migration
 A set of instructions that modify the database schema. These are timestamped and committed to version control.
@@ -32,6 +38,9 @@ A detailed breakdown of how a database management system intends to execute a SQ
 
 ### Relation
 Also known as `relname`, it typically refers to a table in a relational database.
+
+### System Catalog
+A PostgreSQL table or view that tracks internal information about the database objects, configurations, and states. System catalogs usually start with the prefix `pg_`.
 
 ### Transaction
 A sequence of one or more SQL operations that are executed as a single logical unit of work.
