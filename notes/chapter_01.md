@@ -182,6 +182,7 @@
 * [Query Execution Plan](../GLOSSARY.md#query-execution-plan) shows how PostgreSQL will execute a query
 
 ## Ruby on Rails Terminology
+
 * Active Record is the default [Object Relational Mapping (ORM)](../GLOSSARY.md#object-relational-mapping-orm) layer for Rails
   * Goes beyond basic persistence
   * [Migrations](../GLOSSARY.md#migration) are used for schema evolution
@@ -192,6 +193,7 @@
     * Can hook into lifecycle events like `before_save` or `after_create`
 
 ## Conventions Used in This Book
+
 * Code snippets are in external files
 * Shell script files (`.sh`)
   * May start with a shebang (`#!/bin/sh`)
@@ -211,12 +213,14 @@
 * Units like **KB**, **MB**, and **GB** match the `PG_SIZE_PRETTY()` function output
 
 ## SQL Formatting Conventions
+
 * SQL keywords and functions are capitalized and monospaced
     * e.g. `SELECT`, `FROM`, `WHERE`, `COUNT()`
     * Capitalization isn't required, but improves readability
 * Proper nouns in PostGreSQL will follow the format in the official documentation
 
 ## Ruby on Rails Formatting Conventions
+
 * Keywords will match official documentation
 * Ruby methods in code samples typically start with a `.` and are lowercased with explicit parentheses
   * e.g. `.where()`, `.find_by()`, `.has_many()`
